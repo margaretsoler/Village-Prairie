@@ -29,7 +29,7 @@ const VideoFeed: React.FC<VideoFeedProps> = ({ src }) => {
   }, [player]);
 
   return (
-    <div>
+    <div className="video-container">
       <video className="video-js" ref={videoRef} controls>
         <source src={src} type="application/x-mpegURL" />
       </video>
