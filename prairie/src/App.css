@@ -47,12 +47,14 @@
   padding-bottom: 56.25%; /* for an aspect ratio of 16:9 */
   height: 0;
   overflow: hidden;
+  
 }
 
 .video-container .video-js {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  left: 20%;
+  width: 60%;
+  height: 60%;
+  
 }
