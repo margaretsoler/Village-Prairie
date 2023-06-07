@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './App.css'
 
 interface Props {
 }
@@ -12,7 +13,7 @@ class HelloWorld extends React.Component<Props, State> {
   }
 
   render() {
-    return <h1>Village prairie</h1>;
+    return <h1 className="title">Village prairie</h1>;
   }
 }
 

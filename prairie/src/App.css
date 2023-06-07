@@ -59,13 +59,15 @@
   
 }
 
-.background-video {
-  object-fit: cover;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  overflow: hidden;
-  position: fixed;
+.title {
+  color: blue;
+  font-size: 24px;
+  font-family: 'Sword_Regular';
+}
+
+
+@font-face {
+  font-family: 'Sword_Regular';
+  src: url('/src/Sword_Regular.woff2') format('woff2');
+
 }
