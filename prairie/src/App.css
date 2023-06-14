@@ -71,3 +71,17 @@
   src: url('/src/Sword_Regular.woff2') format('woff2');
 
 }
+
+@font-face {
+  font-family: 'perfect dos vga 437';
+  src: url('/src/perfect dos vga 437.woff2') format('woff2');
+
+}
+
+.time-font {
+  font-family: 'perfect dos vga 437';
+  color: black;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+}
