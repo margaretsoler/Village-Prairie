@@ -7,7 +7,7 @@ const DelayedTime: React.FC = () => {
     const delay = 10 * 60 * 1000; // 10 minutes in milliseconds
 
     const updateDelayedTime = () => {
-      const delayedTime = new Date(Date.now() - delay);
+      const delayedTime = new Date(Date.now() + delay);
       const formattedTime = delayedTime.toLocaleTimeString();
       setTime(formattedTime);
     };
