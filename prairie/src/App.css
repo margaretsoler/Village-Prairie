@@ -86,3 +86,23 @@
   bottom: 5%;
   left: 50%;
 }
+
+
+
+.vertical-stripe {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 130px; /* Adjust the width as per your requirement */
+  height: 100vh; /* Adjust the height as per your requirement */
+  background-color: transparent; /* Adjust the background color as per your requirement */
+  z-index: 9999; /* Adjust the z-index as per your requirement */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vertical-stripe img {
+  max-width: 100%;
+  max-height: 100%;
+}
