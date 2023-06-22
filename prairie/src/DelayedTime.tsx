@@ -27,14 +27,13 @@ const DelayedTime: React.FC = () => {
     };
   }, []);
 
-  const backgroundColor = isDaytime ? 'white' : 'black';
+  const timeFontClass = `time-font ${isDaytime ? '' : 'night'}`;
 
   return (
-    <div style={{ backgroundColor, minHeight: '100vh' }}>
-      <div className="time-font">{time}</div>
+    <div style={{ backgroundColor: isDaytime ? 'white' : 'black', minHeight: '100vh' }}>
+      <div className={timeFontClass}>{time}</div>
     </div>
   );
 };
 
 export default DelayedTime;
-

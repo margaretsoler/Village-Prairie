@@ -81,11 +81,17 @@
 
 .time-font {
   font-family: 'perfect dos vga 437';
-  color: black;
   position: absolute;
   bottom: 5%;
   left: 50%;
+  color: black; /* Default color */
+
+  /* Nighttime color */
+  &.night {
+    color: white;
+  }
 }
+
 
 
 
