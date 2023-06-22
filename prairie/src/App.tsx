@@ -3,7 +3,7 @@ import HelloWorld from './Carotte';
 import VideoFeed from './VideoFeed'
 import { Box } from "@mui/system";
 import DelayedTime from './DelayedTime';
-import Nighttime from './nighttime';
+
 
 
 
@@ -14,7 +14,7 @@ function App() {
       <HelloWorld></HelloWorld>
       <VideoFeed src="http://localhost:8083/stream/pattern/channel/0/hls/live/index.m3u8"  />
       <DelayedTime />
-        <Nighttime />
+        
 
       <div>
     
