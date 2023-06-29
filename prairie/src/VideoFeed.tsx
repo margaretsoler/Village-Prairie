@@ -40,16 +40,18 @@ const VideoFeed: React.FC<VideoFeedProps> = ({ src }) => {
   };
 
   return (
-    <div className="video-container">
+    <>
       {isPlaying ? (
         <img src={tomateImg2} alt="Tomate" className="tomate-image" />
       ) : (
         <img src={tomateImg} alt="Tomate" className="tomate-image" />
       )}
-      <video onPlay={handlePlay} onPause={handlePause} className="video-js" ref={videoRef} controls>
-        <source src={src} type="application/x-mpegURL" />
-      </video>
-    </div>
+      <div className="video-container">
+        <video onPlay={handlePlay} onPause={handlePause} className="video-js" ref={videoRef} controls>
+          <source src={src} type="application/x-mpegURL" />
+        </video>
+      </div>
+    </>
   );
 };
 
