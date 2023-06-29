@@ -8,6 +8,25 @@ const VideoFeed: React.FC<VideoFeedProps> = ({ src }) => {
   const videoRef = useRef(null);
   const [player, setPlayer] = useState<ReturnType<typeof videojs>>();
   const [isPlaying, setIsPlaying] = useState(false);
+  const [showPlaceholder, setShowPlaceholder] = useState(true);
+  const [isNight, setIsNight] = useState(false);
+
+  useEffect(() => {
+    const checkTime = () => {
+      const currentTime = new Date();
+      const currentHour = currentTime.getHours();
+      setIsNight(currentHour < 6 || currentHour >= 20);
+    };
+
+    // Vérifiez l'heure initiale au chargement du composant
+    checkTime();
+
+    // Puis vérifiez toutes les minutes
+    const intervalId = setInterval(checkTime, 60 * 1000); // 60 * 1000 ms = 1 minute
+
+    // N'oubliez pas de nettoyer l'intervalle lorsque le composant se démonte
+    return () => clearInterval(intervalId);
+  }, []);
 
   useEffect(() => {
     if (!player) {
@@ -51,9 +70,11 @@ const VideoFeed: React.FC<VideoFeedProps> = ({ src }) => {
     if (videoElement) {
       if (videoElement.paused) {
         videoElement.play();
+        setShowPlaceholder(false);
         setIsPlaying(true);
       } else {
         videoElement.pause();
+        setShowPlaceholder(true);
         setIsPlaying(false);
       }
     }
@@ -69,12 +90,16 @@ const VideoFeed: React.FC<VideoFeedProps> = ({ src }) => {
 
   return (
     <>
-      {isPlaying ? (
-        <img src={tomateImg2} alt="Tomate" className="tomate-image" />
+      {showPlaceholder ? (
+        <>
+          <div className={`paused-video-placeholder ${isNight ? "night" : ""}`} />
+          <h1 className="title">Space</h1>
+          <img src={tomateImg} alt="Tomate" className="tomate-image" />
+        </>
       ) : (
-        <img src={tomateImg} alt="Tomate" className="tomate-image" />
+        <img src={tomateImg2} alt="Tomate" className="tomate-image" />
       )}
-      <div className="video-container">
+      <div className={`video-container ${showPlaceholder ? "hidden" : ""}`}>
         <video
           onPlay={handlePlay}
           onPause={handlePause}
@@ -85,11 +110,12 @@ const VideoFeed: React.FC<VideoFeedProps> = ({ src }) => {
           <source src={src} type="application/x-mpegURL" />
         </video>
       </div>
-      <div className="text-container">
+      <div className={`text-container ${isPlaying ? "paused" : ""}`}>
         <p className="text">[ SPACE TO PLAY AND PAUSE ]</p>
       </div>
     </>
   );
+
 };
 
 interface VideoFeedProps {
