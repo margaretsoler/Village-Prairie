@@ -13,7 +13,7 @@ class HelloWorld extends React.Component<Props, State> {
   }
 
   render() {
-    return <h1 className="title">Village prairie</h1>;
+    return <h1 className="title">Space</h1>;
   }
 }
 
