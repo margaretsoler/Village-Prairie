@@ -111,7 +111,7 @@ const VideoFeed: React.FC<VideoFeedProps> = ({ src }) => {
         </video>
       </div>
       <div className={`text-container ${isPlaying ? "paused" : ""}`}>
-        <p className="text">[ SPACE TO PLAY AND PAUSE ]</p>
+        <p className="text">[ SPaCE TO PLAY AND PAUSE ]</p>
       </div>
     </>
   );
