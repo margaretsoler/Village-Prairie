@@ -5,7 +5,7 @@ import tomateImg from "./tomate.png";
 import tomateImg2 from "./tomate2.png";
 
 const VideoFeed: React.FC<VideoFeedProps> = ({ src }) => {
-  const videoRef = useRef(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   const [player, setPlayer] = useState<ReturnType<typeof videojs>>();
   const [isPlaying, setIsPlaying] = useState(false);
   const [showPlaceholder, setShowPlaceholder] = useState(true);
@@ -39,7 +39,7 @@ const VideoFeed: React.FC<VideoFeedProps> = ({ src }) => {
         })
       );
     }
-  }, [videoRef]);
+  }, [videoRef, player]);
 
   useEffect(() => {
     return () => {
@@ -50,7 +50,7 @@ const VideoFeed: React.FC<VideoFeedProps> = ({ src }) => {
   }, [player]);
 
   useEffect(() => {
-    const handleKeyDown = (event) => {
+    const handleKeyDown = (event: KeyboardEvent) => {
       if (event.code === "Space") {
         event.preventDefault();
         togglePlay();
@@ -115,7 +115,6 @@ const VideoFeed: React.FC<VideoFeedProps> = ({ src }) => {
       </div>
     </>
   );
-
 };
 
 interface VideoFeedProps {

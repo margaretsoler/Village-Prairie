@@ -1,6 +1,6 @@
-import DelayedTime from './DelayedTime';
+
 import './App.css';
-import HelloWorld from './Carotte';
+
 import VideoFeed from './VideoFeed';
 import { Box } from "@mui/system";
 
