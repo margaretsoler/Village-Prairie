@@ -1,8 +1,8 @@
 import { useRef, useEffect, useState } from "react";
 import videojs from "video.js";
 import "video.js/dist/video-js.css";
-import tomateImg from "./tomate.png";
-import tomateImg2 from "./tomate2.png";
+import redCar from "./redcar.png";
+import greenCar from "./greencar.png";
 
 const VideoFeed: React.FC<VideoFeedProps> = ({ src }) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -94,10 +94,10 @@ const VideoFeed: React.FC<VideoFeedProps> = ({ src }) => {
         <>
           <div className={`paused-video-placeholder ${isNight ? "night" : ""}`} />
           <h1 className="title">Space</h1>
-          <img src={tomateImg} alt="Tomate" className="tomate-image" />
+          <img src={redCar} alt="Tomate" className="tomate-image" />
         </>
       ) : (
-        <img src={tomateImg2} alt="Tomate" className="tomate-image" />
+        <img src={greenCar} alt="Tomate" className="tomate-image" />
       )}
       <div className={`video-container ${showPlaceholder ? "hidden" : ""}`}>
         <video
