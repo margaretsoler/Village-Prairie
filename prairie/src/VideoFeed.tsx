@@ -1,11 +1,11 @@
 import { useRef, useEffect, useState } from "react";
 import videojs from "video.js";
 import "video.js/dist/video-js.css";
-import tomateImg from "./tomate.png";
-import tomateImg2 from "./tomate2.png";
+import redCar from "./redcar.png";
+import greenCar from "./greencar.png";
 
 const VideoFeed: React.FC<VideoFeedProps> = ({ src }) => {
-  const videoRef = useRef(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   const [player, setPlayer] = useState<ReturnType<typeof videojs>>();
   const [isPlaying, setIsPlaying] = useState(false);
   const [showPlaceholder, setShowPlaceholder] = useState(true);
@@ -39,7 +39,7 @@ const VideoFeed: React.FC<VideoFeedProps> = ({ src }) => {
         })
       );
     }
-  }, [videoRef]);
+  }, [videoRef, player]);
 
   useEffect(() => {
     return () => {
@@ -50,7 +50,7 @@ const VideoFeed: React.FC<VideoFeedProps> = ({ src }) => {
   }, [player]);
 
   useEffect(() => {
-    const handleKeyDown = (event) => {
+    const handleKeyDown = (event: KeyboardEvent) => {
       if (event.code === "Space") {
         event.preventDefault();
         togglePlay();
@@ -93,11 +93,11 @@ const VideoFeed: React.FC<VideoFeedProps> = ({ src }) => {
       {showPlaceholder ? (
         <>
           <div className={`paused-video-placeholder ${isNight ? "night" : ""}`} />
-          <h1 className="title">Space</h1>
-          <img src={tomateImg} alt="Tomate" className="tomate-image" />
+          <h1 className="title">PLAY</h1>
+          <img src={redCar} alt="Tomate" className="tomate-image" />
         </>
       ) : (
-        <img src={tomateImg2} alt="Tomate" className="tomate-image" />
+        <img src={greenCar} alt="Tomate" className="tomate-image" />
       )}
       <div className={`video-container ${showPlaceholder ? "hidden" : ""}`}>
         <video
@@ -111,11 +111,10 @@ const VideoFeed: React.FC<VideoFeedProps> = ({ src }) => {
         </video>
       </div>
       <div className={`text-container ${isPlaying ? "paused" : ""}`}>
-        <p className="text">[ SPACE TO PLAY AND PAUSE ]</p>
+        <p className="text">PLAY</p>
       </div>
     </>
   );
-
 };
 
 interface VideoFeedProps {
